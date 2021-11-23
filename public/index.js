@@ -1,23 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import * as d3 from 'd3';
-
-import './index.css';
-import * as serviceWorker from './serviceWorker';
-
-import App from './components/App';
-import firebase from "firebase";
-
-export default function App() {
-  const firebaseApp = firebase.apps[0];
-// Initialize Firebase
-var config = {
-};
-firebase.initializeApp(config);
-const db = firebase.firestore();
-db.settings({ timestampsInSnapshots: true });
-
-//ReactDOM.render(<App />, document.getElementById('root'));
 // select the svg container first
 const svg = d3.select('.canvas')
   .append('svg')
@@ -168,8 +148,3 @@ db.collection('dishes').get().then(res => {
 
 });
 
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.register();
